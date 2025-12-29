@@ -167,26 +167,6 @@ FROM retail_sales
 GROUP BY category
 ```
 
-10. **Write a SQL query to create each shift and number of orders (Example Morning <12, Afternoon Between 12 & 17, Evening >17)**:
-```sql
-WITH hourly_sale
-AS
-(
-SELECT *,
-    CASE
-        WHEN EXTRACT(HOUR FROM sale_time) < 12 THEN 'Morning'
-        WHEN EXTRACT(HOUR FROM sale_time) BETWEEN 12 AND 17 THEN 'Afternoon'
-        ELSE 'Evening'
-    END as shift
-FROM retail_sales
-)
-SELECT 
-    shift,
-    COUNT(*) as total_orders    
-FROM hourly_sale
-GROUP BY shift
-```
-
 ## Findings
 
 - **Customer Demographics**: The dataset includes customers from various age groups, with sales distributed across different categories such as Clothing and Beauty.
@@ -225,3 +205,4 @@ For more content on SQL, data analysis, and other data-related topics, make sure
 - **Discord**: [Join our community to learn and grow together](https://discord.gg/36h5f2Z5PK)
 
 Thank you for your support, and I look forward to connecting with you!
+
